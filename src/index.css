@@ -3,9 +3,9 @@
 
 :root {
   --bg-color: #5A1E76;
-  --text-color: #fb0101;
+  --text-color: #fff;
   --accent-color: #ffd700;
-  --text-color2:#72CFF9
+  --text-color2: #72CFF9;
   --font-family: 'Fredoka One', cursive, system-ui;
 }
 
@@ -41,4 +41,34 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.game-name {
+  position: fixed;
+  left: 1rem;
+  bottom: 0rem;
+  color: var(--text-color2);
+  z-index: 10;
+}
+
+.game-name h1 {
+  font-size: 8rem;
+  line-height: 1;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.game-name h2 {
+  font-size: 8rem;
+  line-height: 1;
+  margin: 0;
+  color: #ffd700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.game-name h3 {
+  font-size: 8rem;
+  line-height: 1;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
