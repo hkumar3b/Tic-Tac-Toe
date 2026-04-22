@@ -72,3 +72,20 @@ body {
   margin: 0;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
+.github-button {
+  height: 2rem;
+  width: 5rem;
+  position: fixed;
+  border-radius: 5rem;
+  right: 1rem;
+  bottom: 1rem;
+  color: #000;
+  background-color: var(--text-color2);
+  cursor: pointer;
+  font-family: var(--font-family);
+  text-shadow: 2px 2px 4px rgb(255, 255, 255,0.5);
+}
+.github-button:hover{
+  background-color: var(--accent-color);
+  scale: calc(1.2);
+}

@@ -1,4 +1,5 @@
 import { GameName } from "./GameName"
+import { GithubButton } from "./GithubButoon"
 
 function App() {
 
@@ -6,6 +7,7 @@ function App() {
     <>
     <div>Hello World</div>
     <GameName/>
+    <GithubButton/>
     </>
   )
 }
