@@ -1,0 +1,44 @@
+/* Modern Reset and Standard Styles */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+:root {
+  --bg-color: #5A1E76;
+  --text-color: #fb0101;
+  --accent-color: #ffd700;
+  --text-color2:#72CFF9
+  --font-family: 'Fredoka One', cursive, system-ui;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  width: 100%;
+  height: 100%;
+  background-color:#000;
+  color: var(--text-color);
+  font-family: var(--font-family);
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  border-radius: 2%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #7a28a1 0%, #5A1E76 100%);
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
