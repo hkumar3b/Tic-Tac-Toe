@@ -1,9 +1,9 @@
 export const GameName=()=>{
     return (
         <div className="game-name">
-            <h1>Tic.</h1>
-            <h2>Tac.</h2>
-            <h3>Toe.</h3>
+            <h1>tic.</h1>
+            <h2>tac.</h2>
+            <h3>toe.</h3>
         </div>
     );
 }

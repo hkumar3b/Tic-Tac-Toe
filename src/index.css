@@ -45,7 +45,7 @@ body {
 
 .game-name {
   position: fixed;
-  left: 1rem;
+  left: 0rem;
   bottom: 0rem;
   color: var(--text-color2);
   z-index: 10;
