@@ -205,3 +205,92 @@ body {
 .square:active {
   transform: scale(0.95);
 }
+
+/* Result Popup */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.popup-card {
+  position: relative;
+  background: #2B0040;
+  border-radius: 24px;
+  padding: 40px 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
+  animation: popIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.popup-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  color: #ffffff88;
+  font-size: 1.4rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.15s ease;
+}
+
+.popup-close:hover {
+  color: #fff;
+}
+
+.popup-label {
+  font-family: var(--font-family);
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: #fff;
+  margin: 0;
+}
+
+.popup-winner {
+  font-family: var(--font-family);
+  font-size: 5rem;
+  line-height: 1;
+  margin: 4px 0;
+}
+
+.popup-play-again {
+  margin-top: 24px;
+  padding: 12px 36px;
+  background: #48D2FE;
+  color: #1A1A1A;
+  border: none;
+  border-radius: 50px;
+  font-family: var(--font-family);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.popup-play-again:hover {
+  background: #F2D51B;
+  transform: scale(1.06);
+}
+
+.popup-play-again:active {
+  transform: scale(0.96);
+}

@@ -1,37 +1,43 @@
 import { useState } from 'react';
+import { ResultPopUp } from './ResultPopUp';
 
 export const PlayArea = () => {
   const [squares, setSquares] = useState<(string | null)[]>(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState<boolean>(true);
+  const [showPopup, setShowPopup] = useState<boolean>(false);
 
   const winner = calculateWinner(squares);
 
   const handleClick = (i: number) => {
-    if (winner || squares[i]) {
-      return;
-    }
+    if (winner || squares[i]) return;
     const nextSquares = squares.slice();
     nextSquares[i] = xIsNext ? 'X' : 'O';
-
-    const nextWinner = calculateWinner(nextSquares);
-    if (nextWinner) {
-      console.log(`Winner is: ${nextWinner}`);
-    }
-
     setSquares(nextSquares);
     setXIsNext(!xIsNext);
-  }
+    if (calculateWinner(nextSquares)) setShowPopup(true);
+  };
+
+  const handleClose = () => setShowPopup(false);
+
+  const handleReset = () => {
+    setSquares(Array(9).fill(null));
+    setXIsNext(true);
+    setShowPopup(false);
+  };
 
   return (
-    <div className="play-area">
-      {squares.map((value, i) => (
-        <Square 
-          key={i} 
-          value={value} 
-          onClick={() => handleClick(i)} 
-        />
-      ))}
-    </div>
+    <>
+      {winner && showPopup && <ResultPopUp winner={winner} onClose={handleClose} onPlayAgain={handleReset} />}
+      <div className="play-area">
+        {squares.map((value, i) => (
+          <Square
+            key={i}
+            value={value}
+            onClick={() => handleClick(i)}
+          />
+        ))}
+      </div>
+    </>
   );
 };
 
