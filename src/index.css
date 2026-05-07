@@ -105,43 +105,64 @@ body {
   padding: 40px;
   z-index: 1;
 }
-.player-nav-bar{
+.player-nav-bar {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 2rem;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 22px;
   width: 100%;
+  max-width: 509px;
+  height: 139px;
+  margin: 0 0 40px 0;
+  padding: 0;
 }
-.player{
-  display: flex;
+
+.player, .draw {
   flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background-color: #72CFF9;
-  border-radius: 10px;
-  color: #000;
-  font-family: 'Fredoka', cursive;
-  min-width: 120px;
-}
-.player-name{
-  font-size: 20px;
-  font-weight: bold;
-}
-.player-score{
-  font-size: 20px;
-  font-weight: bold;
-}
-.draw{
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 25px;
-  background-color: #72CFF9;
-  border-radius: 10px;
-  color: #000;
-  font-family: 'Fredoka', cursive;
+  border-radius: 16px;
+  padding: 16px 8px;
+  color: #1A1A1A;
+  font-family: var(--font-family);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.player:hover, .draw:hover {
+  transform: translateY(-2px);
+}
+
+.player:first-child {
+  background-color: #72CFF9; /* Player X */
+}
+
+.draw {
+  background-color: #BDD8E5; /* Draw */
+}
+
+.player:last-child {
+  background-color: #FFD700; /* Player O */
+}
+
+.player-name, .draw p:first-child {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.player-score, .draw p:last-child {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.draw p {
+  margin: 0;
 }
