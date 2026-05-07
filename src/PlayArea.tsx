@@ -4,13 +4,20 @@ export const PlayArea = () => {
   const [squares, setSquares] = useState<(string | null)[]>(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState<boolean>(true);
 
+  const winner = calculateWinner(squares);
+
   const handleClick = (i: number) => {
-    if (calculateWinner(squares) || squares[i]) {
-      console.log("already filled or game is over");
+    if (winner || squares[i]) {
       return;
     }
     const nextSquares = squares.slice();
     nextSquares[i] = xIsNext ? 'X' : 'O';
+
+    const nextWinner = calculateWinner(nextSquares);
+    if (nextWinner) {
+      console.log(`Winner is: ${nextWinner}`);
+    }
+
     setSquares(nextSquares);
     setXIsNext(!xIsNext);
   }
