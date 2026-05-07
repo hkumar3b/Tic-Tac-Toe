@@ -113,24 +113,25 @@ body {
   gap: 22px;
   width: 100%;
   max-width: 509px;
-  height: 139px;
   margin: 0 0 40px 0;
   padding: 0;
 }
 
 .player, .draw {
-  flex: 1;
-  height: 100%;
+  width: 155px;
+  height: 110px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 16px;
-  padding: 16px 8px;
+  border-radius: 10px;
+  padding: 10px; /* Reduced horizontal padding to prevent text wrap */
   color: #1A1A1A;
   font-family: var(--font-family);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease;
+  gap: 5px;
+  white-space: nowrap; /* Ensure text stays on one line */
 }
 
 .player:hover, .draw:hover {
@@ -138,29 +139,30 @@ body {
 }
 
 .player:first-child {
-  background-color: #72CFF9; /* Player X */
+  background-color: #48D2FE; /* Player X - Exact Figma Color */
 }
 
 .draw {
-  background-color: #BDD8E5; /* Draw */
+  background-color: #BDD8E5; /* Draw - Visual match */
 }
 
 .player:last-child {
-  background-color: #FFD700; /* Player O */
+  background-color: #F2D51B; /* Player O - Visual match */
 }
 
 .player-name, .draw p:first-child {
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 1px;
-  margin-bottom: 8px;
+  margin: 0;
   text-transform: uppercase;
 }
 
 .player-score, .draw p:last-child {
-  font-size: 40px;
+  font-size: 48px; /* Increased to fill the box better */
   font-weight: 700;
   line-height: 1;
+  margin: 0;
 }
 
 .draw p {
