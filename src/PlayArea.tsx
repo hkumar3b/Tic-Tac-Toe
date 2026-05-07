@@ -5,16 +5,23 @@ export const PlayArea = () => {
   const [squares, setSquares] = useState<(string | null)[]>(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState<boolean>(true);
   const [showPopup, setShowPopup] = useState<boolean>(false);
+  const [isDraw, setIsDraw] = useState<boolean>(false);
 
   const winner = calculateWinner(squares);
+  const draw = !winner && squares.every(Boolean);
 
   const handleClick = (i: number) => {
-    if (winner || squares[i]) return;
+    if (winner || draw || squares[i]) return;
     const nextSquares = squares.slice();
     nextSquares[i] = xIsNext ? 'X' : 'O';
     setSquares(nextSquares);
     setXIsNext(!xIsNext);
-    if (calculateWinner(nextSquares)) setShowPopup(true);
+    if (calculateWinner(nextSquares)) {
+      setShowPopup(true);
+    } else if (nextSquares.every(Boolean)) {
+      setIsDraw(true);
+      setShowPopup(true);
+    }
   };
 
   const handleClose = () => setShowPopup(false);
@@ -23,11 +30,12 @@ export const PlayArea = () => {
     setSquares(Array(9).fill(null));
     setXIsNext(true);
     setShowPopup(false);
+    setIsDraw(false);
   };
 
   return (
     <>
-      {winner && showPopup && <ResultPopUp winner={winner} onClose={handleClose} onPlayAgain={handleReset} />}
+      {showPopup && <ResultPopUp winner={winner} isDraw={isDraw} onClose={handleClose} onPlayAgain={handleReset} />}
       <div className="play-area">
         {squares.map((value, i) => (
           <Square
