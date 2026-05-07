@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { ResultPopUp } from './ResultPopUp';
 
-export const PlayArea = () => {
+
+
+export const PlayArea = ({ onWin, onDraw }: PlayAreaProps) => {
   const [squares, setSquares] = useState<(string | null)[]>(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState<boolean>(true);
   const [showPopup, setShowPopup] = useState<boolean>(false);
@@ -17,8 +19,10 @@ export const PlayArea = () => {
     setSquares(nextSquares);
     setXIsNext(!xIsNext);
     if (calculateWinner(nextSquares)) {
+      onWin(calculateWinner(nextSquares)!);
       setShowPopup(true);
     } else if (nextSquares.every(Boolean)) {
+      onDraw();
       setIsDraw(true);
       setShowPopup(true);
     }
@@ -81,3 +85,8 @@ const calculateWinner = (squares: (string | null)[]) => {
   }
   return null;
 }
+
+type PlayAreaProps = {
+  onWin: (winner: string) => void;
+  onDraw: () => void;
+};
